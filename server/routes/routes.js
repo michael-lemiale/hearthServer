@@ -50,16 +50,16 @@ for (let obj in data) {
 
 function filterByCardClass (className, cardList = data) {
 	let returnCardList = [];
-	// if (className == '' || className == undefined) {
-	// 	return cardList;
-	// } else {
+	if (className == '' || className == undefined) {
+		return data;
+	} else {
 		for (let card in cardList) {
 			if (typeof cardList[card].cardClass != 'undefined') {
 				if (cardList[card].cardClass === className.toUpperCase()) {
 					returnCardList.push(cardList[card]);
 				}
 			}
-		// }
+		}
 	}
 	return returnCardList;
 }
