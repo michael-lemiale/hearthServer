@@ -50,14 +50,17 @@ for (let obj in data) {
 
 function filterByCardClass (className, cardList = data) {
 	let returnCardList = [];
-	for (let card in cardList) {
-		if (typeof cardList[card].cardClass != 'undefined') {
-			if (cardList[card].cardClass = className) {
-				returnCardList.push(cardList[card]);
+	if (className == '' || className == undefined) {
+		return cardList;
+	} else {
+		for (let card in cardList) {
+			if (typeof cardList[card].cardClass != 'undefined') {
+				if (cardList[card].cardClass = className) {
+					returnCardList.push(cardList[card]);
+				}
 			}
 		}
 	}
-	console.log(returnCardList);
 	return returnCardList;
 }
 
