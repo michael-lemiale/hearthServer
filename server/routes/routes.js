@@ -50,16 +50,16 @@ for (let obj in data) {
 
 function filterByCardClass (className, cardList = data) {
 	let returnCardList = [];
-	if (className == '' || className == undefined) {
-		return cardList;
-	} else {
+	// if (className == '' || className == undefined) {
+	// 	return cardList;
+	// } else {
 		for (let card in cardList) {
 			if (typeof cardList[card].cardClass != 'undefined') {
-				if (cardList[card].cardClass = className) {
+				if (cardList[card].cardClass === className.toUpperCase()) {
 					returnCardList.push(cardList[card]);
 				}
 			}
-		}
+		// }
 	}
 	return returnCardList;
 }
@@ -116,7 +116,7 @@ module.exports = (app, db) => {
 		if (!pageNum) {
 			pageNum = 1;
 		}
-
+		
 		// loop through all parameters in the query
 		for (param in req.query) {
 			switch(param.toLowerCase()) {
